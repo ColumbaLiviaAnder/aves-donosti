@@ -7,8 +7,8 @@
     "habitat": "rio",
     "color": "azul",
     "curiosidad": "Es un excelente pescador. Se zambulle a gran velocidad en el río Urumea para atrapar pececillos.",
-    "imagen": "https://seo.org/wp-content/uploads/2013/11/martin_pescador_alcedo_atthis_f_m_f-600x400.jpg",
-    "canto": "https://seo.org/wp-content/uploads/2013/11/F232-Canto.mp3"
+    "imagen": "fotos/Gorrion_comun.jpg",
+    "canto": "cantos/canto-gorrion.mp3"
   },
   {
     "id": "mirlo",
