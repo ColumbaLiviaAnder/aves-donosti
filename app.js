@@ -15,16 +15,16 @@ async function cargarAves() {
 }
 
 // NUEVA FUNCIÓN: Se encarga de hacer sonar el MP3 directo de SEO/BirdLife
-function escucharCanto(urlCanto) {
+function escucharCanto(canto) {
     // Si ya está sonando un ave, la callamos antes de poner la siguiente
     if (audioActual) {
         audioActual.pause();
     }
 
     try {
-        audioActual = new Audio(urlCanto);
+        audioActual = new Audio(canto);
         audioActual.play();
-        console.log(`Reproduciendo canto desde SEO/BirdLife: ${urlCanto}`);
+        console.log(`Reproduciendo canto desde SEO/BirdLife: ${canto}`);
     } catch (error) {
         console.error("Error al reproducir el audio de SEO/BirdLife:", error);
         alert("Hubo un problema al reproducir el sonido.");
