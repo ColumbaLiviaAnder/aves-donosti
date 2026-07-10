@@ -1,6 +1,6 @@
 // Variable global para guardar las aves que carguemos del JSON
 let listaAves = [];
-// Variable global para controlar el audio que está sonando y evitar que se solapen
+// Variable global para controlar el audio que está sonando y evitar que se mezclen
 let audioActual = null;
 
 // Función para cargar los datos
@@ -14,30 +14,20 @@ async function cargarAves() {
     }
 }
 
-// NUEVA FUNCIÓN: Para buscar y reproducir el canto desde Xeno-canto
-async function escucharCanto(nombreCientifico) {
-    // Si ya hay un canto sonando, lo pausamos antes de iniciar el siguiente
+// NUEVA FUNCIÓN: Se encarga de hacer sonar el MP3 directo de SEO/BirdLife
+function escucharCanto(urlCanto) {
+    // Si ya está sonando un ave, la callamos antes de poner la siguiente
     if (audioActual) {
         audioActual.pause();
     }
 
     try {
-        // Usamos corsproxy.io para evitar bloqueos de CORS en desarrollo local
-        const url = `https://corsproxy.io/?https://xeno-canto.org/api/2/recordings?query=${encodeURIComponent(nombreCientifico)}`;
-        const respuesta = await fetch(url);
-        const datos = await respuesta.json();
-
-        if (datos.recordings && datos.recordings.length > 0) {
-            const urlAudio = datos.recordings[0].file;
-            audioActual = new Audio(urlAudio);
-            audioActual.play();
-            console.log(`Reproduciendo el canto de: ${nombreCientifico}`);
-        } else {
-            alert("Lo sentimos, no se encontró el canto de esta ave en la base de datos.");
-        }
+        audioActual = new Audio(urlCanto);
+        audioActual.play();
+        console.log(`Reproduciendo canto desde SEO/BirdLife: ${urlCanto}`);
     } catch (error) {
-        console.error("Error al conectar con Xeno-canto:", error);
-        alert("Hubo un problema al cargar el audio.");
+        console.error("Error al reproducir el audio de SEO/BirdLife:", error);
+        alert("Hubo un problema al reproducir el sonido.");
     }
 }
 
@@ -53,12 +43,13 @@ function mostrarAves(aves) {
 
     aves.forEach(ave => {
         const tarjeta = document.createElement('div');
+        // Añadimos 'flex flex-col justify-between' para que todas las tarjetas midan lo mismo y los botones queden alineados abajo
         tarjeta.className = "bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-stone-200 flex flex-col justify-between";
         
         tarjeta.innerHTML = `
             <div>
                 <img src="${ave.imagen}" alt="${ave.nombreEs}" class="w-full h-48 object-cover">
-                <div class="p-5pb-0 p-5">
+                <div class="p-5">
                     <span class="inline-block text-xs font-bold uppercase tracking-wide px-2 py-1 rounded bg-stone-100 text-stone-600 mb-2">${ave.habitat.toUpperCase()}</span>
                     <h3 class="text-2xl font-bold text-stone-900">${ave.nombreEs}</h3>
                     <h4 class="text-md text-teal-600 font-medium italic mb-1">${ave.nombreEu}</h4>
@@ -68,9 +59,11 @@ function mostrarAves(aves) {
                     </div>
                 </div>
             </div>
+            
+            <!-- EL BOTÓN NUEVO: Llama a escucharCanto usando la propiedad 'canto' del JSON -->
             <div class="px-5 pb-5">
                 <button 
-                    onclick="escucharCanto('${ave.cientifico}')" 
+                    onclick="escucharCanto('${ave.canto}')" 
                     class="w-full py-2.5 px-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-sm transition-colors duration-200 flex items-center justify-center gap-2 text-sm"
                 >
                     🔊 Escuchar Canto
