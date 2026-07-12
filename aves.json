@@ -32,4 +32,40 @@
     "imagen": "https://seo.org/wp-content/uploads/2013/11/gaviota_patiamarilla_larus_michahellis_a_f-600x400.jpg",
     "canto": "https://seo.org/wp-content/uploads/2013/11/F190-Canto.mp3"
   }
+  ,
+  {
+    "id": "Paloma Bravia",
+    "nombreEs": "Gaviota Patiamarilla",
+    "nombreEu": "Flankiamatlandiko Kaioa",
+    "cientifico": "Larus michahellis",
+    "habitat": "costa",
+    "color": "blanco",
+    "curiosidad": "Son las reinas de La Concha y Zurriola. ¡Cuidado con tu bocadillo si comes en la playa!",
+    "imagen": "https://seo.org/wp-content/uploads/2013/11/gaviota_patiamarilla_larus_michahellis_a_f-600x400.jpg",
+    "canto": "https://seo.org/wp-content/uploads/2013/11/F190-Canto.mp3"
+  }
+  ,
+  {
+    "id": "Petirrojo",
+    "nombreEs": "Gaviota Patiamarilla",
+    "nombreEu": "Flankiamatlandiko Kaioa",
+    "cientifico": "Larus michahellis",
+    "habitat": "costa",
+    "color": "blanco",
+    "curiosidad": "Son las reinas de La Concha y Zurriola. ¡Cuidado con tu bocadillo si comes en la playa!",
+    "imagen": "https://seo.org/wp-content/uploads/2013/11/gaviota_patiamarilla_larus_michahellis_a_f-600x400.jpg",
+    "canto": "https://seo.org/wp-content/uploads/2013/11/F190-Canto.mp3"
+  }
+  ,
+  {
+    "id": "Zorzal",
+    "nombreEs": "Gaviota Patiamarilla",
+    "nombreEu": "Flankiamatlandiko Kaioa",
+    "cientifico": "Larus michahellis",
+    "habitat": "costa",
+    "color": "blanco",
+    "curiosidad": "Son las reinas de La Concha y Zurriola. ¡Cuidado con tu bocadillo si comes en la playa!",
+    "imagen": "https://seo.org/wp-content/uploads/2013/11/gaviota_patiamarilla_larus_michahellis_a_f-600x400.jpg",
+    "canto": "https://seo.org/wp-content/uploads/2013/11/F190-Canto.mp3"
+  }
 ]
